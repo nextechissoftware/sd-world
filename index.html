@@ -178,13 +178,13 @@
 <div class="container-fluid py-5 bg-light">
   <div class="container text-center">
     <!-- Heading -->
-    <h2 class="fw-bold mb-3 animate__animated animate__bounceInDown"
+    <h2 id="school-heading" class="fw-bold mb-3"
         style="font-size: clamp(24px, 6vw, 48px); line-height: 1.2;">
       Welcome to <span class="text-primary">S.D. World Inter College</span>
     </h2>
     
     <!-- Subheading -->
-    <p class="text-muted mb-4 animate__animated animate__fadeInUp animate__delay-1s"
+    <p id="school-subheading" class="text-muted mb-4"
        style="font-size: clamp(14px, 4vw, 20px); line-height: 1.6;">
       A place where <strong>knowledge meets values</strong>, and every child is nurtured to achieve excellence in 
       academics, sports, and life skills.
@@ -192,30 +192,27 @@
 
     <!-- Features -->
     <div class="row mt-4">
-      <!-- Feature 1 -->
-      <div class="col-md-4 col-sm-6 col-12 mb-4 animate__animated animate__zoomIn animate__delay-2s">
+      <div id="feature1" class="col-md-4 col-sm-6 col-12 mb-4">
         <div class="p-4 shadow-lg rounded bg-white h-100 hover-shadow">
-          <i class="fa fa-book mb-3 dancing-icon"
+          <i class="fa fa-book mb-3 icon-dance"
              style="font-size: clamp(28px, 8vw, 48px); color:#0d6efd;"></i>
           <h4 class="fw-bold" style="font-size: clamp(18px, 5vw, 24px);">Quality Education</h4>
           <p style="font-size: clamp(14px, 4vw, 18px);">Modern teaching methods that inspire curiosity, creativity, and critical thinking.</p>
         </div>
       </div>
 
-      <!-- Feature 2 -->
-      <div class="col-md-4 col-sm-6 col-12 mb-4 animate__animated animate__zoomIn animate__delay-3s">
+      <div id="feature2" class="col-md-4 col-sm-6 col-12 mb-4">
         <div class="p-4 shadow-lg rounded bg-white h-100 hover-shadow">
-          <i class="fa fa-users mb-3 dancing-icon"
+          <i class="fa fa-users mb-3 icon-dance"
              style="font-size: clamp(28px, 8vw, 48px); color:#198754;"></i>
           <h4 class="fw-bold" style="font-size: clamp(18px, 5vw, 24px);">Holistic Development</h4>
           <p style="font-size: clamp(14px, 4vw, 18px);">Beyond academics, we focus on character building, sports, arts, and leadership.</p>
         </div>
       </div>
 
-      <!-- Feature 3 -->
-      <div class="col-md-4 col-sm-6 col-12 mb-4 animate__animated animate__zoomIn animate__delay-4s">
+      <div id="feature3" class="col-md-4 col-sm-6 col-12 mb-4">
         <div class="p-4 shadow-lg rounded bg-white h-100 hover-shadow">
-          <i class="fa fa-graduation-cap mb-3 dancing-icon"
+          <i class="fa fa-graduation-cap mb-3 icon-dance"
              style="font-size: clamp(28px, 8vw, 48px); color:#dc3545;"></i>
           <h4 class="fw-bold" style="font-size: clamp(18px, 5vw, 24px);">Future Ready</h4>
           <p style="font-size: clamp(14px, 4vw, 18px);">Equipping students with skills, confidence, and values to succeed in life and society.</p>
@@ -224,7 +221,7 @@
     </div>
 
     <!-- Call to Action Button -->
-    <div class="mt-4 animate__animated animate__fadeInUp animate__delay-5s">
+    <div id="cta-button" class="mt-4">
       <a href="#admissions" 
          class="btn btn-primary btn-lg px-4 py-2 fw-bold shadow"
          style="font-size: clamp(14px, 4vw, 20px); white-space: normal;">
@@ -235,24 +232,20 @@
 </div>
 <!-- Highlight Section End -->
 
-<!-- Animation CSS -->
+<!-- Animate.css -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
 
 <style>
 /* Dancing Icon Animation */
-.dancing-icon {
-  display: inline-block;
-  animation: dancing 1.5s infinite ease-in-out;
+@keyframes dance {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-10deg) scale(1.1); }
+  50% { transform: rotate(10deg) scale(1.1); }
+  75% { transform: rotate(-10deg) scale(1.05); }
 }
-
-/* Keyframes for dancing effect */
-@keyframes dancing {
-  0%   { transform: translateY(0) rotate(0deg); }
-  20%  { transform: translateY(-6px) rotate(-8deg); }
-  40%  { transform: translateY(0) rotate(8deg); }
-  60%  { transform: translateY(-6px) rotate(-6deg); }
-  80%  { transform: translateY(0) rotate(6deg); }
-  100% { transform: translateY(0) rotate(0deg); }
+.icon-dance {
+  animation: dance 2s infinite;
 }
 
 /* Extra fine-tuning for small devices */
@@ -261,6 +254,35 @@
   .p-4 { padding: 1.2rem !important; }
 }
 </style>
+
+<script>
+// Helper to animate on scroll
+function animateOnScroll(elementId, animation, delay = 0) {
+  const el = document.getElementById(elementId);
+  if (!el) return;
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          el.classList.add("animate__animated", animation);
+        }, delay);
+        observer.unobserve(el);
+      }
+    });
+  }, { threshold: 0.2 });
+  observer.observe(el);
+}
+
+// Trigger animations
+document.addEventListener("DOMContentLoaded", function () {
+  animateOnScroll("school-heading", "animate__bounceInDown", 0);
+  animateOnScroll("school-subheading", "animate__fadeInUp", 200);
+  animateOnScroll("feature1", "animate__zoomIn", 300);
+  animateOnScroll("feature2", "animate__zoomIn", 500);
+  animateOnScroll("feature3", "animate__zoomIn", 700);
+  animateOnScroll("cta-button", "animate__fadeInUp", 900);
+});
+</script>
 
 
     <!-- Facilities Start -->
