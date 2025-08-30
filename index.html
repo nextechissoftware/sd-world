@@ -174,16 +174,21 @@
 
     <!-- Header End -->
 <!-- Highlight Section Start -->
-<div class="container-fluid py-5 bg-light">
+<div class="container-fluid py-5 bg-light" id="highlight-section">
   <div class="container text-center">
     <!-- Heading -->
-    <h2 class="fw-bold mb-3 animate__animated animate__bounceInDown"
+    <h2 class="fw-bold mb-3" 
+        data-aos="fade-down" 
+        data-aos-duration="1000"
         style="font-size: clamp(24px, 6vw, 48px); line-height: 1.2;">
       Welcome to <span class="text-primary">S.D. World Inter College</span>
     </h2>
     
     <!-- Subheading -->
-    <p class="text-muted mb-4 animate__animated animate__fadeInUp animate__delay-1s"
+    <p class="text-muted mb-4"
+       data-aos="fade-up"
+       data-aos-delay="200"
+       data-aos-duration="1000"
        style="font-size: clamp(14px, 4vw, 20px); line-height: 1.6;">
       A place where <strong>knowledge meets values</strong>, and every child is nurtured to achieve excellence in 
       academics, sports, and life skills.
@@ -191,27 +196,27 @@
 
     <!-- Features -->
     <div class="row mt-4">
-      <div class="col-md-4 col-sm-6 col-12 mb-4 animate__animated animate__zoomIn animate__delay-2s">
+      <div class="col-md-4 col-sm-6 col-12 mb-4" data-aos="zoom-in" data-aos-delay="300">
         <div class="p-4 shadow-lg rounded bg-white h-100 hover-shadow">
-          <i class="fa fa-book mb-3 animate__animated animate__pulse animate__infinite"
+          <i class="fa fa-book mb-3"
              style="font-size: clamp(28px, 8vw, 48px); color:#0d6efd;"></i>
           <h4 class="fw-bold" style="font-size: clamp(18px, 5vw, 24px);">Quality Education</h4>
           <p style="font-size: clamp(14px, 4vw, 18px);">Modern teaching methods that inspire curiosity, creativity, and critical thinking.</p>
         </div>
       </div>
 
-      <div class="col-md-4 col-sm-6 col-12 mb-4 animate__animated animate__zoomIn animate__delay-3s">
+      <div class="col-md-4 col-sm-6 col-12 mb-4" data-aos="zoom-in" data-aos-delay="500">
         <div class="p-4 shadow-lg rounded bg-white h-100 hover-shadow">
-          <i class="fa fa-users mb-3 animate__animated animate__heartBeat animate__infinite"
+          <i class="fa fa-users mb-3"
              style="font-size: clamp(28px, 8vw, 48px); color:#198754;"></i>
           <h4 class="fw-bold" style="font-size: clamp(18px, 5vw, 24px);">Holistic Development</h4>
           <p style="font-size: clamp(14px, 4vw, 18px);">Beyond academics, we focus on character building, sports, arts, and leadership.</p>
         </div>
       </div>
 
-      <div class="col-md-4 col-sm-6 col-12 mb-4 animate__animated animate__zoomIn animate__delay-4s">
+      <div class="col-md-4 col-sm-6 col-12 mb-4" data-aos="zoom-in" data-aos-delay="700">
         <div class="p-4 shadow-lg rounded bg-white h-100 hover-shadow">
-          <i class="fa fa-graduation-cap mb-3 animate__animated animate__swing animate__infinite"
+          <i class="fa fa-graduation-cap mb-3"
              style="font-size: clamp(28px, 8vw, 48px); color:#dc3545;"></i>
           <h4 class="fw-bold" style="font-size: clamp(18px, 5vw, 24px);">Future Ready</h4>
           <p style="font-size: clamp(14px, 4vw, 18px);">Equipping students with skills, confidence, and values to succeed in life and society.</p>
@@ -220,7 +225,7 @@
     </div>
 
     <!-- Call to Action Button -->
-    <div class="mt-4 animate__animated animate__fadeInUp animate__delay-5s">
+    <div class="mt-4" data-aos="fade-up" data-aos-delay="900">
       <a href="#admissions" 
          class="btn btn-primary btn-lg px-4 py-2 fw-bold shadow"
          style="font-size: clamp(14px, 4vw, 20px); white-space: normal;">
@@ -231,16 +236,17 @@
 </div>
 <!-- Highlight Section End -->
 
-<!-- Animation CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<!-- AOS Library -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 
-<style>
-/* Extra fine-tuning for small devices */
-@media (max-width: 576px) {
-  .hover-shadow { box-shadow: 0 0 10px rgba(0,0,0,0.15); }
-  .p-4 { padding: 1.2rem !important; }
-}
-</style>
+<script>
+  AOS.init({
+    duration: 1000,   // animation duration
+    once: true        // run only once when scrolled into view
+  });
+</script>
+
 
     <!-- Facilities Start -->
     <div class="container-fluid pt-5">
